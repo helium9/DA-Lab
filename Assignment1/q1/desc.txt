@@ -1,0 +1,2 @@
+first line contains number of test cases.
+for each test case, input the size of array(n) and in next line n integers for array inputs.

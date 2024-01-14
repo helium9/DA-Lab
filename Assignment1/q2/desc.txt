@@ -1,0 +1,7 @@
+First line is number of test cases.
+
+Next lines in order contains (for each test case):
+1. Number of items (n)
+2. Weights of inputs (n input array)
+3. Value of items (n input array)
+4. Maximum capacity (total weight)

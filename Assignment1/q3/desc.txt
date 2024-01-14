@@ -1,0 +1,6 @@
+First line is number of test cases. (t)
+
+Next lines in order contains (for each test case):
+1. Number of cities(n)
+2. Names of cities(string) (n total)
+3. Matrix for Graph (next n lines contain each row of the matrix, in each line values are space separated)
