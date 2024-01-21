@@ -49,7 +49,7 @@ int main(){
     myFile.close();
     // vector<int> v1{1,4,7}, v2{2,3};
     vector<int> v3 = merge(v1, v2);
-    myFile.open("out.txt", ios::out);
+    myFile.open("out_a.txt", ios::out);
 
     for(auto i:v3){
         myFile<<i<<" ";

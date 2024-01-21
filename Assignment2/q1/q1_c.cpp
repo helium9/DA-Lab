@@ -10,11 +10,17 @@ vector<int> merge(const vector<int>& v1, const vector<int>& v2){
     for(int i{0}; i<v1.size()+v2.size(); i++){
         if(p1<v1.size() && p2<v2.size()){
             if(v1[p1]>=v2[p2]){
-                if(v1[p1]==v2[p2])v.push_back(v2[p2]);
+                if(v.size()>0){
+                    if(v1[p1]==v2[p2] && v.back()!=v2[p2])v.push_back(v2[p2]);
+                }
+                else if(v1[p1]==v2[p2])v.push_back(v2[p2]);
                 p2++;
             }
             else if(v2[p2]>v1[p1]){
-                if(v1[p1]==v2[p2])v.push_back(v1[p1]);
+                if(v.size()>0){
+                    if(v1[p1]==v2[p2] && v.back()!=v2[p2])v.push_back(v1[p1]);
+                }
+                else if(v1[p1]==v2[p2])v.push_back(v1[p1]);
                 p1++;
             }
         }
@@ -48,7 +54,7 @@ int main(){
     myFile.close();
     // vector<int> v1{1,4,7}, v2{2,3};
     vector<int> v3 = merge(v1, v2);
-    myFile.open("out.txt", ios::out);
+    myFile.open("out_c.txt", ios::out);
 
     for(auto i:v3){
         myFile<<i<<" ";
