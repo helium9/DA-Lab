@@ -1,0 +1,1 @@
+The time complexity would be of O(n) as in worst case the Time=T(n)+T(n-1), T(n) is the time for number of iterations for finding smallest element in the subarray. Here we are finding the smallest element in the entire array and swap it with first element, then find the smallest in the [1, n-1] indexed subarray.
