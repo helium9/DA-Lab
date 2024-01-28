@@ -1,3 +1,4 @@
+//Divide and Conquer, O(nlogn) algorithm
 #include<iostream>
 #include<vector>
 #include<algorithm>
