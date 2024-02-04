@@ -1,12 +1,13 @@
 #include<iostream>
 #include<vector>
+#include<fstream>
 using namespace std;
-int _count{0};
+long long int _count{0};
 
-vector<int> merge(const vector<int>& v1, const vector<int>& v2){
-    int p1{(int)(v1.size()-1)}, p2{(int)(v2.size()-1)};
-    vector<int> v(v1.size()+v2.size());
-    for(int i{(int)(v1.size()+v2.size()-1)}; i>=0; i--){
+vector<long long int> merge(const vector<long long int>& v1, const vector<long long int>& v2){
+    long long int p1{(long long int)(v1.size()-1)}, p2{(long long int)(v2.size()-1)};
+    vector<long long int> v(v1.size()+v2.size());
+    for(long long int i{(long long int)(v1.size()+v2.size()-1)}; i>=0; i--){
         if(p1>=0 && p2>=0){
             if(v1[p1]>v2[p2]){
                 v[i]=v1[p1];
@@ -32,23 +33,32 @@ vector<int> merge(const vector<int>& v1, const vector<int>& v2){
     return v;
 }
 
-vector<int> mergeSort(vector<int>& v, int low, int high){
-    if(low==high)return vector<int>{v[low]};
-    int mid = low+(high-low)/2;
-    vector<int> v1 = mergeSort(v, low, mid);
-    vector<int> v2 = mergeSort(v, mid+1, high);
+vector<long long int> mergeSort(vector<long long int>& v, long long int low, long long int high){
+    if(low==high)return vector<long long int>{v[low]};
+    long long int mid = low+(high-low)/2;
+    vector<long long int> v1 = mergeSort(v, low, mid);
+    vector<long long int> v2 = mergeSort(v, mid+1, high);
     return merge(v1, v2);
 }
 
 int main(){
-    int N;
-    cin>>N;
-    vector<int> A(N);
-    for(int i{0}; i<N; i++)cin>>A[i];
-    // vector<int> v1{1,2,3,5,6,7,8};
-    // vector<int> v2{1,2,3,10};
-    vector<int> out = mergeSort(A, 0, A.size()-1);
-    cout<<_count<<endl;
-    for(auto i:out)cout<<i<<" ";
+    fstream myFile;
+    myFile.open("in1.txt", ios::in);
+    long long int N;
+    if (!myFile.is_open()) {
+        std::cerr << "Error opening the myFile!" <<endl;
+        return 1;
+    }
+    myFile>>N;
+    vector<long long int> A(N);
+    for(long long int i{0}; i<N; i++)myFile>>A[i];
+    // vector<long long int> v1{1,2,3,5,6,7,8};
+    // vector<long long int> v2{1,2,3,10};
+    myFile.close();
+    vector<long long int> out = mergeSort(A, 0, A.size()-1);
+    myFile.open("out1.txt", ios::out);
+    myFile<<_count;
+    myFile.close();
+    // for(auto i:out)cout<<i<<" ";
     return 0;
 }
