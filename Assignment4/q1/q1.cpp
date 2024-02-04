@@ -1,4 +1,4 @@
-//nlog(n) time complexity, input first line: N; second line:array[]
+//O(nlog(n)) time complexity; O(n) space complexity, input first line: N; second line:array[]
 #include<iostream>
 #include<vector>
 #include<fstream>

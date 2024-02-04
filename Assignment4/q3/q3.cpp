@@ -1,4 +1,4 @@
-//n+klog(n), time complexity, input file: first line: n k; second line: array[]
+//O(n+klog(n)), time complexity; O(1) space complexity, input file: first line: n k; second line: array[]
 #include<iostream>
 #include<vector>
 #include<fstream>
