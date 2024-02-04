@@ -46,14 +46,14 @@ class Heap{
 int main(){
     long long int N, k;
     fstream myFile;
-    myFile.open("in1.txt", ios::in);
+    myFile.open("in2.txt", ios::in);
     myFile>>N>>k;
     vector<long long int> nums(N);
     for(long long int i{0}; i<N; i++)myFile>>nums[i];
     myFile.close();
     Heap H = Heap(nums);
     H.HeapSort(k);
-    myFile.open("out1.txt", ios::out);
+    myFile.open("out2.txt", ios::out);
     myFile<<H.heap[N-k];
     myFile.close();
     return 0;

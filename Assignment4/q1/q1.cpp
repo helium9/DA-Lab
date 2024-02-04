@@ -43,7 +43,7 @@ vector<long long int> mergeSort(vector<long long int>& v, long long int low, lon
 
 int main(){
     fstream myFile;
-    myFile.open("in1.txt", ios::in);
+    myFile.open("in2.txt", ios::in);
     long long int N;
     if (!myFile.is_open()) {
         std::cerr << "Error opening the myFile!" <<endl;
@@ -56,7 +56,7 @@ int main(){
     // vector<long long int> v2{1,2,3,10};
     myFile.close();
     vector<long long int> out = mergeSort(A, 0, A.size()-1);
-    myFile.open("out1.txt", ios::out);
+    myFile.open("out2.txt", ios::out);
     myFile<<_count;
     myFile.close();
     // for(auto i:out)cout<<i<<" ";

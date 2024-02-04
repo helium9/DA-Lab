@@ -43,14 +43,14 @@ long double findMedianSortedArrays(const vector<long long int>& nums1, const vec
 int main() {
     long long int n, m;
     fstream myFile;
-    myFile.open("in1.txt", ios::in);
+    myFile.open("in2.txt", ios::in);
     myFile>>n>>m;
     vector<long long int> nums1(n), nums2(m);
     for(long long int i{0}; i<n; i++)myFile>>nums1[i];
     for(long long int i{0}; i<m; i++)myFile>>nums2[i];
     myFile.close();
     long double median = findMedianSortedArrays(nums1, nums2);
-    myFile.open("out1.txt", ios::out);
+    myFile.open("out2.txt", ios::out);
     myFile << "Median: " << median << endl;
     myFile.close();
     return 0;

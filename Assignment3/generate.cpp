@@ -21,7 +21,7 @@ std::vector<int> generateRandomNumbers(int amount, int min, int max) {
 }
 
 int main() {
-    int amount = 40; // Number of random numbers to generate
+    int amount = 100000; // Number of random numbers to generate
     int minRange = 1000; // Minimum value of the range
     int maxRange = 10000; // Maximum value of the range
 
@@ -29,7 +29,7 @@ int main() {
     // sort(randomNumbers.begin(), randomNumbers.end());
     std::fstream myFile;
     myFile.open("out.txt", ios::out);
-    for(int i{0}; i<100; i++){
+    for(int i{0}; i<1; i++){
         std::vector<int> randomNumbers = generateRandomNumbers(amount, minRange, maxRange);
         for (const auto& num : randomNumbers) {
             myFile << num << " ";
