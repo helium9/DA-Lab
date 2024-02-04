@@ -1,3 +1,4 @@
+//n+klog(n), time complexity, input file: first line: n k; second line: array[]
 #include<iostream>
 #include<vector>
 #include<fstream>

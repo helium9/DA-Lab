@@ -1,3 +1,4 @@
+//log(m+n) time complecity, input file: first 2 lines: m n; second two lines: nums1[] nums2[] 
 #include <iostream>
 #include <vector>
 #include<fstream>

@@ -1,3 +1,4 @@
+//nlog(n) time complexity, input first line: N; second line:array[]
 #include<iostream>
 #include<vector>
 #include<fstream>
