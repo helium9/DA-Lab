@@ -2,6 +2,7 @@
 #include<vector>
 #include<queue>
 #include<tuple>
+#include<fstream>
 
 using namespace std;
 using ti = tuple<char, int, int>;
@@ -19,10 +20,12 @@ int main(){
     int n, b, c;
     char a;
     ti t;
-    cin>>n;
+    fstream myFile;
+    myFile.open("q2_input.txt", ios::in);
+    myFile>>n;
     priority_queue<ti, vector<ti>, decltype(&comp)> p(comp);
     for(int i{0}; i<n; i++){
-        cin>>a>>b>>c;
+        myFile>>a>>b>>c;
         p.push({a, b, c});
     }
 
@@ -37,12 +40,15 @@ int main(){
             profit+=get<2>(curr);
         }
     }
-    cout<<endl;
+    myFile.close();
+    myFile.open("q2_output.txt", ios::out);
     while(!seq.empty()){
         char job = seq.front();
-        cout<<job<<" ";
+        myFile<<job<<" ";
         seq.pop();
     }
-    cout<<profit<<endl;
+    myFile<<endl;
+    myFile<<profit<<endl;
+    myFile.close();
     return 0;
 }

@@ -3,6 +3,7 @@
 #include<queue>
 #include<tuple>
 #include<algorithm>
+#include<fstream>
 
 using namespace std;
 using ti = tuple<char, int, int>;
@@ -29,17 +30,22 @@ int main(){
     int n, b, c, max_t{0};
     char a;
     ti t;
-    cin>>n;
+    fstream myFile;
+    myFile.open("q2_input.txt", ios::in);
+    myFile>>n;
     vector<ti> v(n);
     for(int i{0}; i<n; i++){
-        cin>>a>>b>>c;
+        myFile>>a>>b>>c;
         max_t=max(max_t, b);
         v[i] = {a, b, c};
     }
     // cout<<max_t<<endl;
     sort(v.begin(), v.end(), comp);
     vector<vector<int>> dp(n, vector<int>(max_t+1, -1));
-    cout<<helper(v, 0, 1, n, max_t, dp)<<endl;
+    myFile.close();
+    myFile.open("q2_output.txt", ios::out);
+    myFile<<helper(v, 0, 1, n, max_t, dp)<<endl;
+    myFile.close();
     return 0;
 }
 
