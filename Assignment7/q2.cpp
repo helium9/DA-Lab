@@ -17,10 +17,11 @@ bool comp(ti t1, ti t2){
 }
 
 int helper(vector<ti>& v, int ind, int time, int n, int max_t, vector<vector<int>>& dp){
-    if(time>max_t || ind>=n)return 0;
+    if(time>max_t)return INT_MIN;
+    if(ind>=n)return 0;
     if(dp[ind][time]!=-1)return dp[ind][time];
     int ans = helper(v, ind+1, time, n, max_t, dp);
-    if(time<=get<1>(v[ind])) ans = max(ans, helper(v, ind+1, time+1, n, max_t, dp)+get<2>(v[ind]));
+    if(time<=get<1>(v[ind]) && time<=max_t) ans = max(ans, helper(v, ind+1, time+1, n, max_t, dp)+get<2>(v[ind]));
     return dp[ind][time] = ans;
 }
 
